@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+work/
+output/
+logs/
+assets/avatar/*.mp4
+assets/avatar/*.jpg
