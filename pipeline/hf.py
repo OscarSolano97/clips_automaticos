@@ -1,7 +1,8 @@
 """Helper para llamar Spaces de Hugging Face con reintentos y SSL tolerante.
 
-El entorno puede tener un proxy con certificado propio (MITM); por eso se usa
-ssl_verify=False para los Spaces publicos, junto con reintentos.
+Esta PC sale a internet por un proxy con certificado propio (MITM), por lo que
+la verificacion SSL debe desactivarse (HF_SSL_VERIFY=false en .env). En una red
+normal (casa) se puede activar: HF_SSL_VERIFY=true.
 """
 from __future__ import annotations
 
@@ -21,7 +22,7 @@ def client(space: str):
         space,
         verbose=False,
         token=settings.hf_token or None,
-        ssl_verify=False,
+        ssl_verify=settings.hf_ssl_verify,
     )
 
 

@@ -5,5 +5,4 @@ __pycache__/
 work/
 output/
 logs/
-assets/avatar/*.mp4
-assets/avatar/*.jpg
+

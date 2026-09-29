@@ -19,6 +19,7 @@ def _abs(value: str) -> Path:
 @dataclass
 class Settings:
     hf_token: str = os.getenv("HF_TOKEN", "")
+    hf_ssl_verify: bool = os.getenv("HF_SSL_VERIFY", "false").lower() in ("1", "true", "yes")
 
     opencode_api_key: str = os.getenv("OPENCODE_API_KEY", "")
     opencode_base_url: str = os.getenv("OPENCODE_BASE_URL", "https://opencode.ai/zen/go/v1")

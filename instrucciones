@@ -1,0 +1,40 @@
+Contenido propuesto (por crear en C:\Users\HP\clip-studio\INSTRUCCIONES_CASA.md)
+1. Clonar
+git clone https://github.com/TU_USUARIO/clip-studio.git
+cd clip-studio
+2. Crear entorno e instalar
+python -m venv .venv
+.venv\Scripts\activate        (Windows)
+pip install -r requirements.txt
+3. Configurar .env
+copy .env.example .env
+Editar .env y rellenar:
+- OPENCODE_API_KEY — key de opencode-go
+- HF_TOKEN — token HF (opcional, mejora quota)
+- HF_SSL_VERIFY=true ← cambiar a true (internet normal de casa)
+4. Regenerar avatar (opcional)
+El avatar no viene en Git. Para generar uno nuevo:
+python cli.py avatar
+O copiar manualmente assets/avatar/avatar.jpg y avatar_loop.mp4 desde la otra PC.
+5. Probar
+python cli.py auto --niche curiosidades -v 1
+La primera vez descarga el modelo Whisper (~150 MB). Los reels quedan en output/.
+
+
+
+
+Son 3 comandos, se escriben uno a la vez (cada uno + Enter, esperando a que termine antes de poner el siguiente):
+#	Comando	Qué hace
+1	python -m venv .venv	Crea el entorno virtual (una vez)
+2	.venv\Scripts\activate	Activa el entorno
+3	pip install -r requirements.txt	Instala las librerías
+¿Dónde los escribo?
+En una terminal de Windows abierta dentro de la carpeta del proyecto:
+- Fácil: clic derecho sobre la carpeta clip-studio → "Abrir en Terminal"
+- Manual: menú Inicio → escribir cmd → abrir → cd clip-studio
+Ejemplo de cómo se ve
+C:\Users\HP\clip-studio>python -m venv .venv
+C:\Users\HP\clip-studio>.venv\Scripts\activate
+(.venv) C:\Users\HP\clip-studio>pip install -r requirements.txt
+Ojo: después del comando 2, aparece (.venv) al inicio de la línea — eso significa que funcionó.
+Si usás PowerShell en vez de CMD, el comando 2 cambia a .venv\Scripts\Activate.ps1.
