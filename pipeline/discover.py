@@ -66,6 +66,7 @@ def search(
         "no_warnings": True,
         "extract_flat": True,
         "skip_download": True,
+        "nocheckcertificate": not settings.yt_ssl_verify,
     }
 
     results: list[Candidate] = []

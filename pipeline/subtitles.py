@@ -48,7 +48,7 @@ def _group(words: list[Word]) -> list[_Chunk]:
 
 
 def _header() -> str:
-    w, h = settings.reel_width, 960
+    w, h = settings.reel_width, settings.reel_height - settings.reel_height // 3
     return (
         "[Script Info]\n"
         "ScriptType: v4.00+\n"

@@ -45,7 +45,7 @@ def build_reel(
     ass_file: Path | None = None,
     voiceover: Path | None = None,
 ) -> Path:
-    w, top_h = settings.reel_width, 960
+    w, top_h = settings.reel_width, settings.reel_height // 3
     bottom_h = settings.reel_height - top_h
     out = settings.output_dir / f"reel_{index:02d}_{_slug(title)}.mp4"
     settings.output_dir.mkdir(parents=True, exist_ok=True)

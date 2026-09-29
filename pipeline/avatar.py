@@ -59,7 +59,7 @@ def ensure_avatar_image(force: bool = False) -> Path:
 
 
 def _loop_from_video(video: Path, out: Path) -> Path:
-    w, h = settings.reel_width, 960
+    w, h = settings.reel_width, settings.reel_height // 3
     scale = (
         f"scale={w}:{h}:force_original_aspect_ratio=increase,"
         f"crop={w}:{h},fps=25,setsar=1"
@@ -86,7 +86,7 @@ def build_loop(seconds: int = 12, force: bool = False) -> Path:
         return _loop_from_video(motion, out)
 
     image = ensure_avatar_image()
-    w, h = settings.reel_width, 960
+    w, h = settings.reel_width, settings.reel_height // 3
     vf = (
         f"scale={int(w * 1.2)}:-2,"
         f"zoompan=z='min(zoom+0.0006,1.15)':d={seconds * 25}"
